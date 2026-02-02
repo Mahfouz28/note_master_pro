@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:note_master_pro/core/components/serarsh_bar.dart';
+import 'package:note_master_pro/core/routes/routes.dart';
+import 'package:note_master_pro/features/add_task/view/add_task_modal.dart';
 import 'package:note_master_pro/features/home/views/widgets/stuts_card.dart';
 import '../../../core/theme/colors.dart';
 import 'widgets/glass_app_bar.dart';
@@ -38,7 +40,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
       floatingActionButton: FloatingActionButton(
         shape: const CircleBorder(),
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            builder: (ctx) => const AddTaskModal(),
+          );
+        },
         elevation: 0,
         child: Container(
           width: 64,
@@ -46,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
           decoration: BoxDecoration(
             gradient: AppColors.purpleGradient,
             shape: BoxShape.circle,
-            // borderRadius: BorderRadius.circular(100),
             border: Border.all(
               color: AppColors.white.withOpacity(0.2),
               width: 1,
@@ -154,7 +162,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   SectionHeader(
                     title: 'Recent Tasks',
                     actionText: 'View All',
-                    onActionTap: () {},
+                    onActionTap: () {
+                      Navigator.pushNamed(context, Routes.viewAll);
+                    },
                   ),
 
                   const SizedBox(height: 16),

@@ -6,7 +6,9 @@ class Routes {
   static const String onboarding = '/onboarding';
   static const String home = '/home';
   static const String login = '/login';
-  static const String register = '/register';
+  static const String signup = '/signup';
+  static const String forgotPassword = '/forgot-password';
+  static const String viewAll = '/view-all';
   static const String profile = '/profile';
   static const String settings = '/settings';
 }

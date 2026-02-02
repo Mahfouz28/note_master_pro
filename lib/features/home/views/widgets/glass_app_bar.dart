@@ -52,7 +52,6 @@ class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
 
                 const SizedBox(width: 16),
 
-                // Welcome text and user name
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,7 +74,6 @@ class GlassAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
 
-                // Profile avatar
                 GestureDetector(
                   onTap: onAvatarTap,
                   child: Stack(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:note_master_pro/core/routes/routes.dart';
 import 'package:note_master_pro/core/theme/colors.dart';
-import 'package:note_master_pro/features/auth/views/widgets/auth_image.dart';
-import 'package:note_master_pro/features/auth/views/widgets/auth_text_feild.dart';
-import 'package:note_master_pro/features/auth/views/widgets/social_bottons.dart';
+import 'package:note_master_pro/features/login/views/widgets/auth_image.dart';
+import 'package:note_master_pro/features/login/views/widgets/auth_text_feild.dart';
+import 'package:note_master_pro/features/login/views/widgets/social_bottons.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -87,8 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return 'Email is required';
+                          }
                           if (!v.contains('@') || !v.contains('.')) {
                             return 'Enter a valid email';
                           }
@@ -101,7 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {
-                            // TODO: forgot password screen
+                            Navigator.pushNamed(context, Routes.forgotPassword);
                           },
                           style: TextButton.styleFrom(
                             foregroundColor: AppColors.primaryLight,
@@ -132,8 +133,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         validator: (v) {
-                          if (v == null || v.isEmpty)
+                          if (v == null || v.isEmpty) {
                             return 'Password is required';
+                          }
                           if (v.length < 6) return 'At least 6 characters';
                           return null;
                         },
@@ -142,15 +144,15 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       FilledButton(
                         onPressed: () {
-                          // if (_formKey.currentState!.validate()) { ... }
+                          // if (_formKey.currentState!.validate()) { }
                           Navigator.pushNamed(context, Routes.home);
                         },
                         style: FilledButton.styleFrom(
                           backgroundColor: AppColors.primary,
                           foregroundColor: AppColors.textPrimary,
-                          elevation: 6,
+                          elevation: 16,
                           shadowColor: AppColors.primary.withOpacity(0.5),
-                          padding: const EdgeInsets.symmetric(vertical: 16),
+                          padding: const EdgeInsets.symmetric(vertical: 20),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
@@ -158,6 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            SizedBox(width: 120),
                             Text(
                               'Sign In',
                               style: TextStyle(
@@ -165,8 +168,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
-                            SizedBox(width: 12),
+                            Spacer(),
                             Icon(Icons.arrow_forward, size: 20),
+                            SizedBox(width: 15),
                           ],
                         ),
                       ),
@@ -185,7 +189,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              // TODO: navigate to sign up
+                              Navigator.pushNamed(context, Routes.signup);
                             },
                             child: Text(
                               'Sign up now',

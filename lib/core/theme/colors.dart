@@ -140,6 +140,14 @@ class AppColors {
     ),
   ];
 
+  static List<BoxShadow> darkblueGlow = [
+    BoxShadow(
+      color: const Color(0xFF0A5FBF).withOpacity(0.5),
+      blurRadius: 20,
+      offset: const Offset(0, 4),
+    ),
+  ];
+
   static List<BoxShadow> redGlow = [
     BoxShadow(color: const Color(0xFFF87171).withOpacity(0.6), blurRadius: 8),
   ];

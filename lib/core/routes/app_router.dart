@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:note_master_pro/features/auth/views/login_screen.dart';
+import 'package:note_master_pro/features/forget_password/view/forget_passwrod_screen.dart';
+import 'package:note_master_pro/features/login/views/login_screen.dart';
+import 'package:note_master_pro/features/sigin_up/views/sigin_up.dart';
+import 'package:note_master_pro/features/view_all/view/view_all_screen.dart';
 import 'routes.dart';
 
 import '../../features/home/views/home_screen.dart';
@@ -10,10 +13,17 @@ class AppRouter {
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case Routes.forgotPassword:
+        return _buildRoute(const ForgotPasswordScreen(), settings);
+      case Routes.signup:
+        return _buildRoute(const SignUpScreen(), settings);
       case Routes.login:
         return _buildRoute(const LoginScreen(), settings);
       case Routes.home:
         return _buildRoute(const HomeScreen(), settings);
+      case Routes.viewAll:
+        return _buildRoute(const ViewAllScreen(), settings);
+
       default:
         return _buildRoute(
           Scaffold(
